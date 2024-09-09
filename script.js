@@ -51,6 +51,7 @@ const addRecipe = () => {
             }
             recipes.push(newRecipe)
             save(recipes)
+            renderLoadedRecipes(recipes)
         } catch {
             alert('Please fill in all fields!');
         }
@@ -101,7 +102,7 @@ const renderLoadedRecipes = (recipes) => {
 };
 
 const removeRecipe = (index) => {
-    if (index) {
+    if (index !== undefined && index !== null) {
         try {
             recipes.splice(index, 1);
             save(recipes);
